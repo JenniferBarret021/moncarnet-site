@@ -9,7 +9,7 @@ const steps = [
   },
   {
     n: '02',
-    t: 'Prenez la commande',
+    t: 'Prenez vos commandes',
     body:
       'Au comptoir, par téléphone, en ligne. Tout converge dans un seul carnet, à jour pour toute l’équipe.',
   },

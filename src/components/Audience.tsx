@@ -36,7 +36,7 @@ export function Audience() {
           Pour qui
         </div>
         <h2 className="text-[34px] md:text-[40px] font-bold tracking-tighter leading-[1.1] text-ink text-balance">
-          Conçu pour les commerces de quartier.
+          Pour les commerçants de proximité<br className="md:hidden" />{' '}qui souhaitent abandonner le crayon papier.
         </h2>
       </FadeIn>
 
@@ -55,6 +55,8 @@ export function Audience() {
           </FadeIn>
         ))}
       </div>
+
+      <p className="text-center text-slate text-sm mt-8">Et bien d'autres…</p>
     </section>
   );
 }

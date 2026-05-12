@@ -110,7 +110,7 @@ export function CatalogView() {
           type="button"
           onClick={() => { setShowImport(true); setImportError(null); setImportSuccess(null); }}
           className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all"
-          style={{ background: '#FFFFFF', color: '#5B3FA8', border: '1.5px solid #5B3FA8' }}
+          style={{ background: '#FFFFFF', color: '#6C3AED', border: '1.5px solid #6C3AED' }}
         >
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
@@ -156,7 +156,7 @@ export function CatalogView() {
                   className="shrink-0 px-3 py-2 rounded-xl text-xs font-bold transition-all"
                   style={
                     active
-                      ? { background: '#5B3FA8', color: '#FFFFFF' }
+                      ? { background: '#6C3AED', color: '#FFFFFF' }
                       : { background: '#FFFFFF', color: '#1E1B2E', border: '1.5px solid #C9C4D9' }
                   }
                 >
@@ -188,7 +188,7 @@ export function CatalogView() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-sm font-bold" style={{ color: '#5B3FA8' }}>
+                    <span className="text-sm font-bold" style={{ color: '#6C3AED' }}>
                       {formatEuro(p.price)}
                     </span>
                     <button
@@ -283,7 +283,7 @@ export function CatalogView() {
                       flex: 1,
                       padding: '0.75rem 1rem',
                       borderRadius: '1rem',
-                      border: '1.5px solid #5B3FA8',
+                      border: '1.5px solid #6C3AED',
                       fontSize: '0.875rem',
                       background: '#fbfaf8',
                       color: '#1E1B2E',
@@ -293,7 +293,7 @@ export function CatalogView() {
                     type="button"
                     onClick={handleNewCategory}
                     className="px-3 rounded-xl text-xs font-bold"
-                    style={{ background: '#5B3FA8', color: '#FFFFFF' }}
+                    style={{ background: '#6C3AED', color: '#FFFFFF' }}
                   >
                     OK
                   </button>
@@ -337,7 +337,7 @@ export function CatalogView() {
                     onClick={() => setShowNewCat(true)}
                     title="Créer une catégorie"
                     className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center"
-                    style={{ background: '#fbfaf8', color: '#5B3FA8', border: '1.5px solid #C9C4D9' }}
+                    style={{ background: '#fbfaf8', color: '#6C3AED', border: '1.5px solid #C9C4D9' }}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                       <line x1="12" y1="5" x2="12" y2="19" />
@@ -357,7 +357,7 @@ export function CatalogView() {
             <button
               type="submit"
               className="mt-2 flex items-center justify-center gap-2 rounded-xl py-3 px-4 font-bold text-sm transition-all"
-              style={{ background: '#5B3FA8', color: '#FFFFFF', minHeight: '3rem' }}
+              style={{ background: '#6C3AED', color: '#FFFFFF', minHeight: '3rem' }}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -434,7 +434,7 @@ export function CatalogView() {
                 type="button"
                 onClick={handleImport}
                 className="flex-1 py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2"
-                style={{ background: '#5B3FA8', color: '#FFFFFF' }}
+                style={{ background: '#6C3AED', color: '#FFFFFF' }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />

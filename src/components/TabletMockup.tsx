@@ -119,7 +119,7 @@ export function TabletMockup() {
                   {selected && (
                     <div
                       className="absolute -top-[7px] -right-[7px] bg-violet-500 text-white rounded-full min-w-[18px] h-[18px] flex items-center justify-center text-[9px] font-bold px-1.5"
-                      style={{ boxShadow: '0 2px 6px rgba(91,63,168,0.35)' }}
+                      style={{ boxShadow: '0 2px 6px rgba(124,58,237,0.35)' }}
                     >
                       {p.qty}
                     </div>
@@ -187,7 +187,7 @@ export function TabletMockup() {
             <div className="flex gap-[3px] mb-1.5 flex-wrap">
               <div
                 className="flex items-center justify-center rounded-[4px]"
-                style={{ background: '#5B3FA8', color: '#FFFFFF', fontSize: '7px', fontWeight: 700, padding: '2.5px 5px' }}
+                style={{ background: '#6C3AED', color: '#FFFFFF', fontSize: '7px', fontWeight: 700, padding: '2.5px 5px' }}
               >
                 Auj.
               </div>
@@ -250,7 +250,7 @@ export function TabletMockup() {
                 29,60 €
               </div>
             </div>
-            <div className="bg-violet-500 text-white text-[10.5px] font-semibold py-2.5 px-3 rounded-lg text-center shadow-[0_2px_8px_rgba(91,63,168,0.3)]">
+            <div className="bg-violet-500 text-white text-[10.5px] font-semibold py-2.5 px-3 rounded-lg text-center shadow-[0_2px_8px_rgba(124,58,237,0.3)]">
               Enregistrer la commande
             </div>
           </div>

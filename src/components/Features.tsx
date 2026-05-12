@@ -43,14 +43,14 @@ function PrepView() {
         <div className="text-[11px] font-bold text-ink tracking-tight">
           Commande #312
         </div>
-        <div className="text-[9px] font-semibold py-0.5 px-2 rounded-full" style={{ background: '#F3EEFF', color: '#5B3FA8' }}>
+        <div className="text-[9px] font-semibold py-0.5 px-2 rounded-full" style={{ background: '#F3EEFF', color: '#6C3AED' }}>
           En préparation
         </div>
       </div>
       <div className="text-[9px] text-slate mb-2">Chloé Lambert · Retrait à 12h00</div>
       {/* Barre de progression */}
       <div className="h-1.5 rounded-full bg-paper-100 mb-2.5 overflow-hidden">
-        <div className="h-full rounded-full" style={{ width: `${(doneCount / total) * 100}%`, background: '#5B3FA8' }} />
+        <div className="h-full rounded-full" style={{ width: `${(doneCount / total) * 100}%`, background: '#6C3AED' }} />
       </div>
       {items.map((p, i) => (
         <div key={i} className="flex items-center gap-2 py-1.5">

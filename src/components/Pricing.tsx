@@ -9,44 +9,36 @@ type Plan = {
   highlight?: boolean;
 };
 
+const features = [
+  'Commandes illimit\u00e9es',
+  'Catalogue produit complet',
+  'Vue pr\u00e9paration',
+  'Gestion des retraits',
+  'Support en fran\u00e7ais',
+];
+
 const plans: Plan[] = [
   {
-    name: 'Solo',
-    price: '19',
-    desc: 'Pour les commerces qui démarrent.',
-    features: [
-      '1 utilisateur',
-      'Commandes illimitées',
-      'Catalogue produit',
-      'Support email',
-    ],
-    cta: 'Commencer',
-  },
-  {
     name: 'Boutique',
-    price: '39',
-    desc: 'Le plus choisi.',
+    price: '49',
+    desc: '1 magasin, toutes les fonctionnalit\u00e9s.',
     features: [
-      'Jusqu’à 5 utilisateurs',
-      'Vue prépa avancée',
-      'Catalogue avancé',
-      'Statistiques',
-      'Support prioritaire',
+      '1 point de vente',
+      ...features,
     ],
     cta: 'Commencer',
     highlight: true,
   },
   {
-    name: 'Atelier',
-    price: '79',
-    desc: 'Pour les équipes & plusieurs points de vente.',
+    name: 'Multi-boutiques',
+    price: '99',
+    desc: 'Pour les commerces avec plusieurs points de vente.',
     features: [
-      'Utilisateurs illimités',
-      'Multi-établissements',
-      'API & intégrations',
-      'Onboarding dédié',
+      'Points de vente illimit\u00e9s',
+      '1 compte par boutique',
+      ...features,
     ],
-    cta: 'Nous contacter',
+    cta: 'Commencer',
   },
 ];
 
@@ -75,12 +67,12 @@ export function Pricing() {
           Un prix simple. Sans surprise.
         </h2>
         <p className="text-base text-slate">
-          Tous les tarifs sont en € HT par mois. 30 jours d&rsquo;essai gratuit, sans
+          Tous les tarifs sont en &euro; HT par mois. 30 jours d&rsquo;essai gratuit, sans
           engagement.
         </p>
       </FadeIn>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-[1100px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 max-w-[780px] mx-auto">
         {plans.map((p, i) => (
           <FadeIn key={p.name} delay={i * 80}>
             <article
@@ -107,7 +99,7 @@ export function Pricing() {
               </div>
               <div className="flex items-baseline gap-1.5 mt-1">
                 <span className="text-[48px] font-bold tracking-tighter text-ink leading-none">
-                  {p.price}€
+                  {p.price}&euro;
                 </span>
                 <span className="text-[13px] text-slate">/mois</span>
               </div>

@@ -220,7 +220,7 @@ export function NewOrderView({ products, onCreated }: Props) {
               onClick={() => setPickupDate(d.value)}
               className="shrink-0 py-2 px-3 rounded-xl text-xs font-bold transition-all"
               style={isActive
-                ? { background: '#5B3FA8', color: '#FFFFFF' }
+                ? { background: '#6C3AED', color: '#FFFFFF' }
                 : { background: '#fbfaf8', color: '#1E1B2E', border: '1.5px solid #C9C4D9' }
               }
             >
@@ -238,7 +238,7 @@ export function NewOrderView({ products, onCreated }: Props) {
           className="shrink-0 py-2 px-3 rounded-xl text-xs font-bold transition-all flex items-center gap-1"
           style={
             !dateOptions().some((o) => o.value === pickupDate)
-              ? { background: '#5B3FA8', color: '#FFFFFF' }
+              ? { background: '#6C3AED', color: '#FFFFFF' }
               : { background: '#fbfaf8', color: '#1E1B2E', border: '1.5px solid #C9C4D9' }
           }
         >
@@ -260,13 +260,13 @@ export function NewOrderView({ products, onCreated }: Props) {
         <div className="flex items-center gap-2">
           <span
             className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold"
-            style={{ background: '#5B3FA8', color: '#FFFFFF' }}
+            style={{ background: '#6C3AED', color: '#FFFFFF' }}
           >
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><circle cx="12" cy="12" r="10" /><path d="M12 6v6l4 2" /></svg>
             {pickupTime.split(':').slice(0, 2).join('h')}
           </span>
           <button type="button" onClick={() => setPickupTime('')} className="text-xs font-semibold" style={{ color: '#8E89A3' }}>Supprimer</button>
-          <button type="button" onClick={() => { setCustomHeure(pickupTime.split(':')[0]); setCustomMinute(pickupTime.split(':')[1] || '00'); setShowHeure(true); }} className="text-xs font-semibold" style={{ color: '#5B3FA8' }}>Modifier</button>
+          <button type="button" onClick={() => { setCustomHeure(pickupTime.split(':')[0]); setCustomMinute(pickupTime.split(':')[1] || '00'); setShowHeure(true); }} className="text-xs font-semibold" style={{ color: '#6C3AED' }}>Modifier</button>
         </div>
       ) : (
         <button
@@ -287,15 +287,15 @@ export function NewOrderView({ products, onCreated }: Props) {
       type="button"
       onClick={() => setPaid(!paid)}
       className="flex items-center justify-between w-full px-3 py-2.5 rounded-xl transition-all"
-      style={{ background: paid ? 'rgba(91, 63, 168, 0.08)' : '#fbfaf8', border: paid ? '2px solid #5B3FA8' : '1.5px solid #C9C4D9' }}
+      style={{ background: paid ? 'rgba(108, 58, 237, 0.08)' : '#fbfaf8', border: paid ? '2px solid #6C3AED' : '1.5px solid #C9C4D9' }}
     >
       <div className="flex items-center gap-2">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={paid ? '#5B3FA8' : '#8E89A3'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke={paid ? '#6C3AED' : '#8E89A3'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="1" y="4" width="22" height="16" rx="2" ry="2" /><line x1="1" y1="10" x2="23" y2="10" />
         </svg>
-        <span className="text-xs font-semibold" style={{ color: paid ? '#5B3FA8' : '#1E1B2E' }}>Prépayé</span>
+        <span className="text-xs font-semibold" style={{ color: paid ? '#6C3AED' : '#1E1B2E' }}>Prépayé</span>
       </div>
-      <div className="w-9 h-5 rounded-full p-0.5 transition-colors" style={{ background: paid ? '#5B3FA8' : '#C9C4D9' }}>
+      <div className="w-9 h-5 rounded-full p-0.5 transition-colors" style={{ background: paid ? '#6C3AED' : '#C9C4D9' }}>
         <div className="w-4 h-4 rounded-full bg-white transition-transform" style={{ transform: paid ? 'translateX(1rem)' : 'translateX(0)' }} />
       </div>
     </button>
@@ -311,7 +311,7 @@ export function NewOrderView({ products, onCreated }: Props) {
             else onCreated();
           }}
           className="flex items-center gap-1 text-base font-bold"
-          style={{ color: '#5B3FA8' }}
+          style={{ color: '#6C3AED' }}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="15 18 9 12 15 6" />
@@ -325,7 +325,7 @@ export function NewOrderView({ products, onCreated }: Props) {
               className="h-2 rounded-full transition-all"
               style={{
                 width: etape === e ? '2.5rem' : '0.75rem',
-                background: ['produits', 'client'].indexOf(etape) >= i ? '#5B3FA8' : '#C9C4D9',
+                background: ['produits', 'client'].indexOf(etape) >= i ? '#6C3AED' : '#C9C4D9',
               }}
             />
           ))}
@@ -359,7 +359,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                 onClick={() => setFilter('Tout')}
                 className="shrink-0 px-5 py-3 rounded-2xl text-sm font-bold transition-all"
                 style={filter === 'Tout'
-                  ? { background: '#5B3FA8', color: '#FFFFFF' }
+                  ? { background: '#6C3AED', color: '#FFFFFF' }
                   : { background: '#FFFFFF', color: '#1E1B2E', border: '2px solid #C9C4D9', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }
                 }
               >
@@ -371,7 +371,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                   onClick={() => setFilter(cat)}
                   className="shrink-0 px-5 py-3 rounded-2xl text-sm font-bold transition-all"
                   style={filter === cat
-                    ? { background: '#5B3FA8', color: '#FFFFFF' }
+                    ? { background: '#6C3AED', color: '#FFFFFF' }
                     : { background: '#FFFFFF', color: '#1E1B2E', border: '2px solid #C9C4D9', boxShadow: '0 2px 6px rgba(0,0,0,0.06)' }
                   }
                 >
@@ -387,9 +387,9 @@ export function NewOrderView({ products, onCreated }: Props) {
                 type="button"
                 onClick={() => setShowCustom(true)}
                 className="flex flex-col items-center justify-center text-center rounded-2xl transition-all"
-                style={{ minHeight: '7rem', padding: '1rem', background: 'transparent', color: '#5B3FA8', border: '2px dashed #5B3FA8' }}
+                style={{ minHeight: '7rem', padding: '1rem', background: 'transparent', color: '#6C3AED', border: '2px dashed #6C3AED' }}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#5B3FA8" strokeWidth="2" strokeLinecap="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6C3AED" strokeWidth="2" strokeLinecap="round">
                   <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
                 </svg>
                 <span className="font-bold text-sm mt-1.5">Produit personnalisé</span>
@@ -410,9 +410,9 @@ export function NewOrderView({ products, onCreated }: Props) {
                     style={{
                       minHeight: '7rem',
                       padding: '1rem',
-                      background: qtyTotal > 0 ? 'rgba(91, 63, 168, 0.08)' : '#FFFFFF',
+                      background: qtyTotal > 0 ? 'rgba(108, 58, 237, 0.08)' : '#FFFFFF',
                       color: '#1E1B2E',
-                      border: qtyTotal > 0 ? '2.5px solid #5B3FA8' : '2px solid #C9C4D9',
+                      border: qtyTotal > 0 ? '2.5px solid #6C3AED' : '2px solid #C9C4D9',
                       boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
                     }}
                   >
@@ -426,7 +426,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                       <>
                         <span
                           className="absolute -top-2 -right-2 min-w-8 h-8 rounded-full text-base font-bold flex items-center justify-center px-1.5"
-                          style={{ background: '#5B3FA8', color: '#FFFFFF', boxShadow: '0 2px 6px rgba(0,0,0,0.15)' }}
+                          style={{ background: '#6C3AED', color: '#FFFFFF', boxShadow: '0 2px 6px rgba(0,0,0,0.15)' }}
                         >
                           {unite === 'kg' ? `${qty}kg` : qty}
                         </span>
@@ -465,7 +465,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                     <div key={l.productId}>
                       {l.qty > 0 && (
                         <div className="flex items-center gap-3">
-                          <span className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style={{ background: 'rgba(91, 63, 168, 0.08)', color: '#5B3FA8' }}>
+                          <span className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style={{ background: 'rgba(108, 58, 237, 0.08)', color: '#6C3AED' }}>
                             {l.qty}
                           </span>
                           <p className="font-semibold text-sm truncate flex-1 min-w-0">{l.name}</p>
@@ -544,13 +544,13 @@ export function NewOrderView({ products, onCreated }: Props) {
                 <div className="px-5 py-4" style={{ borderTop: '1.5px solid #C9C4D9' }}>
                   <div className="flex justify-between items-center mb-4">
                     <span className="font-bold text-base">Total TTC</span>
-                    <span className="font-bold text-2xl" style={{ color: '#5B3FA8' }}>{total.toFixed(2)} €</span>
+                    <span className="font-bold text-2xl" style={{ color: '#6C3AED' }}>{total.toFixed(2)} €</span>
                   </div>
                   <button
                     onClick={(e) => { e.preventDefault(); validate(e as unknown as React.FormEvent); }}
                     disabled={panier.length === 0}
                     className="w-full flex items-center justify-center gap-2 rounded-xl py-3.5 px-4 font-bold text-base transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-                    style={{ background: '#5B3FA8', color: '#FFFFFF', minHeight: '3.5rem' }}
+                    style={{ background: '#6C3AED', color: '#FFFFFF', minHeight: '3.5rem' }}
                   >
                     Enregistrer la commande
                   </button>
@@ -573,7 +573,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                       <div key={l.productId}>
                         {l.qty > 0 && (
                           <div className="flex items-center gap-3">
-                            <span className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style={{ background: 'rgba(91, 63, 168, 0.08)', color: '#5B3FA8' }}>{l.qty}</span>
+                            <span className="w-7 h-7 rounded-lg flex items-center justify-center text-xs font-bold shrink-0" style={{ background: 'rgba(108, 58, 237, 0.08)', color: '#6C3AED' }}>{l.qty}</span>
                             <p className="font-semibold text-sm truncate flex-1 min-w-0">{l.name}</p>
                             <p className="font-bold text-sm shrink-0">{(l.qty * l.price).toFixed(2)} €</p>
                             <button onClick={() => supprimerLigne(l.productId)} className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style={{ background: '#FEF2F2' }}>
@@ -600,7 +600,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                 <div className="flex items-center gap-3">
                   <div className="flex-1">
                     <p className="text-sm font-medium" style={{ color: '#4A4560' }}>{panier.length} article{panier.length > 1 ? 's' : ''}</p>
-                    <p className="text-xl font-bold" style={{ color: '#5B3FA8' }}>{total.toFixed(2)} €</p>
+                    <p className="text-xl font-bold" style={{ color: '#6C3AED' }}>{total.toFixed(2)} €</p>
                   </div>
                   <button
                     onClick={() => setShowDetailMobile(!showDetailMobile)}
@@ -612,7 +612,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                   <button
                     onClick={() => setEtape('client')}
                     className="px-6 py-2.5 rounded-xl text-base font-bold"
-                    style={{ background: '#5B3FA8', color: '#FFFFFF', minHeight: '3.25rem' }}
+                    style={{ background: '#6C3AED', color: '#FFFFFF', minHeight: '3.25rem' }}
                   >
                     Valider
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="inline ml-1"><polyline points="9 18 15 12 9 6" /></svg>
@@ -694,7 +694,7 @@ export function NewOrderView({ products, onCreated }: Props) {
           <div className="mt-6 pt-4" style={{ borderTop: '1.5px solid #C9C4D9' }}>
             <div className="flex justify-between items-center mb-4">
               <span className="font-bold text-base">Total TTC</span>
-              <span className="font-bold text-2xl" style={{ color: '#5B3FA8' }}>{total.toFixed(2)} €</span>
+              <span className="font-bold text-2xl" style={{ color: '#6C3AED' }}>{total.toFixed(2)} €</span>
             </div>
 
             {confirmation && (
@@ -706,7 +706,7 @@ export function NewOrderView({ products, onCreated }: Props) {
             <button
               type="submit"
               className="w-full flex items-center justify-center gap-2 rounded-xl py-3.5 px-4 font-bold text-base transition-all"
-              style={{ background: '#5B3FA8', color: '#FFFFFF', minHeight: '3.5rem' }}
+              style={{ background: '#6C3AED', color: '#FFFFFF', minHeight: '3.5rem' }}
             >
               Enregistrer la commande
             </button>
@@ -776,7 +776,7 @@ export function NewOrderView({ products, onCreated }: Props) {
             </div>
 
             {produitModal.price > 0 && (
-              <p className="text-center text-lg font-bold mb-4" style={{ color: '#5B3FA8' }}>
+              <p className="text-center text-lg font-bold mb-4" style={{ color: '#6C3AED' }}>
                 = {(parseFloat(qteModal || '0') * produitModal.price).toFixed(2)} €
               </p>
             )}
@@ -868,7 +868,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                 type="button"
                 onClick={validerQuantite}
                 className="flex-1 py-3 rounded-xl font-bold text-sm"
-                style={{ background: '#5B3FA8', color: '#FFFFFF' }}
+                style={{ background: '#6C3AED', color: '#FFFFFF' }}
               >
                 Valider
               </button>
@@ -942,7 +942,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                 type="button"
                 onClick={validerCustom}
                 className="flex-1 py-3 rounded-xl font-bold text-sm"
-                style={{ background: '#5B3FA8', color: '#FFFFFF' }}
+                style={{ background: '#6C3AED', color: '#FFFFFF' }}
               >
                 Ajouter
               </button>
@@ -1034,10 +1034,10 @@ export function NewOrderView({ products, onCreated }: Props) {
                       }}
                       className="w-full aspect-square rounded-xl flex items-center justify-center text-sm font-semibold transition-all"
                       style={{
-                        background: isSelected ? '#5B3FA8' : isToday ? 'rgba(91, 63, 168, 0.08)' : 'transparent',
+                        background: isSelected ? '#6C3AED' : isToday ? 'rgba(108, 58, 237, 0.08)' : 'transparent',
                         color: isSelected ? '#FFFFFF' : isPast ? '#C9C4D9' : '#1E1B2E',
                         cursor: isPast ? 'not-allowed' : 'pointer',
-                        border: isToday && !isSelected ? '1.5px solid #5B3FA8' : 'none',
+                        border: isToday && !isSelected ? '1.5px solid #6C3AED' : 'none',
                       }}
                     >
                       {day}
@@ -1076,7 +1076,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                   className="py-2.5 rounded-xl text-sm font-bold transition-all"
                   style={
                     customHeure === h
-                      ? { background: '#5B3FA8', color: '#FFFFFF' }
+                      ? { background: '#6C3AED', color: '#FFFFFF' }
                       : { background: '#fbfaf8', color: '#1E1B2E' }
                   }
                 >
@@ -1096,7 +1096,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                   className="py-2.5 rounded-xl text-sm font-bold transition-all"
                   style={
                     customMinute === m
-                      ? { background: '#5B3FA8', color: '#FFFFFF' }
+                      ? { background: '#6C3AED', color: '#FFFFFF' }
                       : { background: '#fbfaf8', color: '#1E1B2E' }
                   }
                 >
@@ -1106,7 +1106,7 @@ export function NewOrderView({ products, onCreated }: Props) {
             </div>
 
             {/* Aperçu */}
-            <p className="text-center text-xl font-bold mb-4" style={{ color: '#5B3FA8' }}>
+            <p className="text-center text-xl font-bold mb-4" style={{ color: '#6C3AED' }}>
               {customHeure}h{customMinute}
             </p>
 
@@ -1126,7 +1126,7 @@ export function NewOrderView({ products, onCreated }: Props) {
                   setShowHeure(false);
                 }}
                 className="flex-1 py-3 rounded-xl font-bold text-sm"
-                style={{ background: '#5B3FA8', color: '#FFFFFF' }}
+                style={{ background: '#6C3AED', color: '#FFFFFF' }}
               >
                 Valider
               </button>

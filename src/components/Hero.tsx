@@ -43,7 +43,7 @@ export function Hero() {
             rel="noopener"
             className="font-medium text-[15px] text-ink hover:text-violet-500 transition-colors"
           >
-            Voir une démo →
+            Tester l'application →
           </a>
         </div>
 
@@ -79,10 +79,10 @@ export function Hero() {
           />
 
           <div className="relative z-[1] flex flex-wrap justify-center items-end gap-y-14">
-            <div className="relative z-[1] max-w-full">
+            <div className="relative z-[1] max-w-full hidden md:block">
               <TabletMockup />
             </div>
-            <div className="relative z-[2] max-w-full -ml-10 -mb-6">
+            <div className="relative z-[2] max-w-full md:-ml-10 -mb-6">
               <PhoneMockup />
             </div>
           </div>

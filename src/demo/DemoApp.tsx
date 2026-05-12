@@ -54,7 +54,7 @@ export function DemoApp() {
           <div className="flex items-center gap-3 mb-6 px-2">
             <div
               className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-              style={{ background: '#5B3FA8' }}
+              style={{ background: '#6C3AED' }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
@@ -71,7 +71,7 @@ export function DemoApp() {
           <button
             onClick={navigateToNew}
             className="flex items-center justify-center gap-2 rounded-xl py-3 px-4 font-bold text-sm mb-6 transition-all"
-            style={{ background: '#5B3FA8', color: '#FFFFFF' }}
+            style={{ background: '#6C3AED', color: '#FFFFFF' }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
               <line x1="12" y1="5" x2="12" y2="19" />
@@ -98,8 +98,8 @@ export function DemoApp() {
                     onClick={() => setView(link.key)}
                     className="w-full flex items-center gap-2 px-3 py-2.5 rounded-xl text-sm transition-all text-left"
                     style={{
-                      background: isActive ? 'rgba(91, 63, 168, 0.08)' : 'transparent',
-                      color: isActive ? '#5B3FA8' : '#1E1B2E',
+                      background: isActive ? 'rgba(108, 58, 237, 0.08)' : 'transparent',
+                      color: isActive ? '#6C3AED' : '#1E1B2E',
                       fontWeight: isActive ? 700 : 500,
                     }}
                   >
@@ -107,7 +107,7 @@ export function DemoApp() {
                     {link.count > 0 && (
                       <span
                         className="min-w-5 h-5 rounded-full flex items-center justify-center px-1.5 opacity-50"
-                        style={{ background: '#5B3FA8', color: '#FFFFFF', fontSize: '0.65rem', fontWeight: 700 }}
+                        style={{ background: '#6C3AED', color: '#FFFFFF', fontSize: '0.65rem', fontWeight: 700 }}
                       >
                         {link.count}
                       </span>
@@ -153,12 +153,12 @@ export function DemoApp() {
                     onClick={() => setView(link.key)}
                     className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm transition-all text-left"
                     style={{
-                      background: isActive ? 'rgba(91, 63, 168, 0.08)' : 'transparent',
-                      color: isActive ? '#5B3FA8' : '#1E1B2E',
+                      background: isActive ? 'rgba(108, 58, 237, 0.08)' : 'transparent',
+                      color: isActive ? '#6C3AED' : '#1E1B2E',
                       fontWeight: isActive ? 700 : 500,
                     }}
                   >
-                    <span style={{ color: isActive ? '#5B3FA8' : '#8E89A3' }}>{link.icon}</span>
+                    <span style={{ color: isActive ? '#6C3AED' : '#8E89A3' }}>{link.icon}</span>
                     {link.label}
                   </button>
                 );
@@ -170,7 +170,7 @@ export function DemoApp() {
           <div className="mb-4 px-2">
             <span
               className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold uppercase tracking-wider"
-              style={{ background: 'rgba(91, 63, 168, 0.08)', color: '#5B3FA8' }}
+              style={{ background: 'rgba(108, 58, 237, 0.08)', color: '#6C3AED' }}
             >
               Démo interactive
             </span>
@@ -196,7 +196,7 @@ export function DemoApp() {
           <div className="flex items-center gap-3 px-2 pt-4" style={{ borderTop: '1px solid #DDD9EA' }}>
             <div
               className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 text-xs font-bold"
-              style={{ background: 'rgba(91, 63, 168, 0.08)', color: '#5B3FA8' }}
+              style={{ background: 'rgba(108, 58, 237, 0.08)', color: '#6C3AED' }}
             >
               {initials}
             </div>
@@ -228,11 +228,11 @@ export function DemoApp() {
           {view !== 'new' && (
             <header
               className="flex items-center gap-3 px-4 py-3 md:hidden"
-              style={{ borderBottom: '2px solid #5B3FA8' }}
+              style={{ borderBottom: '2px solid #6C3AED' }}
             >
               <div
                 className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                style={{ background: '#5B3FA8' }}
+                style={{ background: '#6C3AED' }}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
@@ -240,7 +240,7 @@ export function DemoApp() {
                 </svg>
               </div>
               <div className="flex-1 min-w-0 text-center">
-                <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#5B3FA8' }}>
+                <p style={{ fontSize: '0.65rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#6C3AED' }}>
                   Mon carnet de commandes
                 </p>
                 <p className="text-sm font-semibold truncate">{shopName}</p>
@@ -288,6 +288,29 @@ export function DemoApp() {
         </div>
       </div>
 
+      {/* ===== MOBILE FAB NOUVELLE COMMANDE ===== */}
+      {showBottomNav && (
+        <button
+          onClick={navigateToNew}
+          className="fixed z-50 md:hidden flex items-center justify-center rounded-full"
+          style={{
+            bottom: 'calc(5.5rem + env(safe-area-inset-bottom))',
+            right: '1rem',
+            width: '52px',
+            height: '52px',
+            background: '#6C3AED',
+            color: '#FFFFFF',
+            boxShadow: '0 6px 20px rgba(108, 58, 237, 0.4), 0 2px 6px rgba(0,0,0,0.1)',
+          }}
+          aria-label="Nouvelle commande"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+        </button>
+      )}
+
       {/* ===== MOBILE BOTTOM NAV ===== */}
       {showBottomNav && (
         <nav
@@ -313,8 +336,8 @@ export function DemoApp() {
                   icon: (active: boolean) => (
                     <svg width="22" height="22" viewBox="0 0 24 24" fill={active ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth={active ? 0 : 1.8} strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                      <line x1="16" y1="2" x2="16" y2="6" stroke={active ? '#5B3FA8' : 'currentColor'} strokeWidth="2" />
-                      <line x1="8" y1="2" x2="8" y2="6" stroke={active ? '#5B3FA8' : 'currentColor'} strokeWidth="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" stroke={active ? '#6C3AED' : 'currentColor'} strokeWidth="2" />
+                      <line x1="8" y1="2" x2="8" y2="6" stroke={active ? '#6C3AED' : 'currentColor'} strokeWidth="2" />
                       <line x1="3" y1="10" x2="21" y2="10" stroke={active ? 'white' : 'currentColor'} strokeWidth="1.8" />
                     </svg>
                   ),
@@ -325,7 +348,7 @@ export function DemoApp() {
                   icon: (active: boolean) => (
                     <svg width="22" height="22" viewBox="0 0 24 24" fill={active ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth={active ? 0 : 1.8} strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
-                      <rect x="9" y="3" width="6" height="4" rx="1" stroke={active ? '#5B3FA8' : 'currentColor'} strokeWidth="1.8" fill={active ? 'white' : 'none'} />
+                      <rect x="9" y="3" width="6" height="4" rx="1" stroke={active ? '#6C3AED' : 'currentColor'} strokeWidth="1.8" fill={active ? 'white' : 'none'} />
                     </svg>
                   ),
                 },
@@ -348,13 +371,13 @@ export function DemoApp() {
                     key={tab.key}
                     onClick={() => setView(tab.key)}
                     className="flex flex-col items-center gap-1 py-1.5 px-3 transition-all duration-200 relative"
-                    style={{ color: isActive ? '#5B3FA8' : '#8E89A3' }}
+                    style={{ color: isActive ? '#6C3AED' : '#8E89A3' }}
                   >
                     <div
                       className="w-14 h-9 rounded-2xl flex items-center justify-center transition-all duration-300"
                       style={{
-                        background: isActive ? '#5B3FA8' : 'transparent',
-                        boxShadow: isActive ? '0 4px 14px rgba(91, 63, 168, 0.4)' : 'none',
+                        background: isActive ? '#6C3AED' : 'transparent',
+                        boxShadow: isActive ? '0 4px 14px rgba(108, 58, 237, 0.4)' : 'none',
                         transform: isActive ? 'scale(1)' : 'scale(0.9)',
                       }}
                     >
@@ -365,7 +388,7 @@ export function DemoApp() {
                     <span
                       className="text-xs leading-none transition-all duration-200"
                       style={{
-                        color: isActive ? '#5B3FA8' : '#8E89A3',
+                        color: isActive ? '#6C3AED' : '#8E89A3',
                         fontWeight: isActive ? 700 : 500,
                       }}
                     >
