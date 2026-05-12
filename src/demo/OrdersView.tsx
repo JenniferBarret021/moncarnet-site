@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { actions, useDemoStore } from './store';
 import { STATUS_META, STATUS_FLOW } from './types';
-import type { Order, OrderStatus, OrderItem } from './types';
+import type { Order, OrderItem } from './types';
 import { formatEuro, today, tomorrow, isSameDay, formatTime } from './utils';
 
 type DayFilter = 'today' | 'tomorrow' | 'week';

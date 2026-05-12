@@ -3,7 +3,7 @@ import { OrdersView } from './OrdersView';
 import { CatalogView } from './CatalogView';
 import { NewOrderView } from './NewOrderView';
 import { useCrossTabSync, actions, useDemoStore } from './store';
-import { today, tomorrow, isSameDay, isBetween, addDays, startOfWeek, endOfWeek } from './utils';
+import { today, tomorrow, isSameDay, isBetween, endOfWeek } from './utils';
 
 type View = 'today' | 'tomorrow' | 'week' | 'catalog' | 'commandes' | 'new';
 
@@ -37,8 +37,6 @@ export function DemoApp() {
 
   const navigateToNew = useCallback(() => setView('new'), []);
   const navigateToOrders = useCallback(() => setView('today'), []);
-
-  const isOrderView = view === 'today' || view === 'tomorrow' || view === 'week';
 
   // Hide new order from bottom nav
   const showBottomNav = view !== 'new';

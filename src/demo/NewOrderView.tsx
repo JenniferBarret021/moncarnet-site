@@ -2,7 +2,7 @@ import { useMemo, useRef, useState } from 'react';
 import { actions } from './store';
 import { CATEGORIES } from './types';
 import type { Product, ProductCategory } from './types';
-import { formatEuro, today, parseDate, toISO, formatMonthYear } from './utils';
+import { today, parseDate, toISO, formatMonthYear } from './utils';
 
 type Props = {
   products: Product[];
