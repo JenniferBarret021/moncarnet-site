@@ -75,9 +75,9 @@ export function Audience() {
   return (
     <section id="audience" className="py-20 md:py-24 px-6 md:px-14 bg-paper-100">
       <FadeIn className="max-w-[760px] mx-auto mb-12 text-center">
-        <div className="text-xs uppercase tracking-widest text-violet-600 font-bold mb-3">
+        <span className="inline-block text-xs uppercase tracking-widest text-violet-600 font-bold mb-3 px-4 py-1.5 rounded-full" style={{ background: 'rgba(91, 63, 168, 0.15)' }}>
           Pour qui
-        </div>
+        </span>
         <h2 className="text-[34px] md:text-[40px] font-bold tracking-tighter leading-[1.1] text-ink">
           <span className="block">Pour les commerçants de proximité</span>
           <span className="block mt-1">qui veulent <span className="text-violet-500">abandonner le</span> <StrikeOnScroll>crayon papier.</StrikeOnScroll></span>

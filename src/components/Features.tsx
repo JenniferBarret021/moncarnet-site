@@ -477,9 +477,9 @@ export function Features() {
     >
       <div className="sticky top-0 min-h-screen flex flex-col justify-center py-12 md:py-16">
         <div className="max-w-[760px] mx-auto mb-8 md:mb-12 text-center">
-          <div className="text-xs uppercase tracking-widest text-violet-500 font-bold mb-3">
+          <span className="inline-block text-xs uppercase tracking-widest text-violet-500 font-bold mb-3 px-4 py-1.5 rounded-full" style={{ background: 'rgba(91, 63, 168, 0.15)' }}>
             Comment ça marche
-          </div>
+          </span>
           <h2 className="text-[34px] md:text-[44px] font-bold tracking-tighter leading-[1.05] text-ink text-balance">
             Prêt en 5 minutes, utile dès aujourd'hui.
           </h2>

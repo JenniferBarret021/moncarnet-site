@@ -4,9 +4,8 @@ import { Wordmark } from './Wordmark';
 import { Button } from './ui/Button';
 
 const links = [
-  { href: '#features', label: 'Fonctionnalités' },
+  { href: '#features', label: 'Comment \u00e7a marche' },
   { href: '#audience', label: 'Pour qui' },
-  { href: '#how', label: 'Fonctionnement' },
   { href: '#pricing', label: 'Tarifs' },
 ];
 
@@ -42,7 +41,7 @@ export function Nav() {
           <Wordmark size={16} />
         </a>
 
-        <div className="hidden lg:flex items-center gap-8 font-sans text-sm text-ink">
+        <div className="hidden lg:flex items-center gap-6 font-sans text-sm text-ink">
           {links.map((l) => (
             <a
               key={l.href}
@@ -52,12 +51,14 @@ export function Nav() {
               {l.label}
             </a>
           ))}
-          <a href="#" className="text-slate hover:text-ink transition-colors">
-            Se connecter
-          </a>
-          <Button href="#" size="sm">
-            Essayer gratuitement
-          </Button>
+          <div className="flex items-center gap-2">
+            <a href="https://app.mon-carnet-de-commandes.fr" className="px-4 py-2 rounded-full border border-ink/20 text-ink font-medium hover:border-violet-500 hover:text-violet-500 transition-colors">
+              Se connecter
+            </a>
+            <Button href="https://app.mon-carnet-de-commandes.fr" size="sm">
+              Essayer gratuitement
+            </Button>
+          </div>
         </div>
 
         <button
@@ -96,13 +97,13 @@ export function Nav() {
               </a>
             ))}
             <a
-              href="#"
+              href="https://app.mon-carnet-de-commandes.fr"
               onClick={() => setOpen(false)}
-              className="text-slate text-base py-2"
+              className="text-center text-base font-medium py-2.5 rounded-full border border-ink/20 hover:border-violet-500 hover:text-violet-500 transition-colors"
             >
               Se connecter
             </a>
-            <Button href="#" size="lg" className="mt-2 w-full">
+            <Button href="https://app.mon-carnet-de-commandes.fr" size="lg" className="mt-2 w-full">
               Essayer gratuitement
             </Button>
           </div>
