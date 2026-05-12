@@ -6,13 +6,13 @@ const config: Config = {
     extend: {
       colors: {
         violet: {
-          50: '#F5F3FF',
-          100: '#EDE9FE',
-          200: '#C4A8FF',
-          500: '#7C3AED',
-          600: '#5B21B6',
-          700: '#5B3FA8',
-          800: '#3D1F6E',
+          50: '#F5F0FF',
+          100: '#EDE5FE',
+          200: '#9272E0',
+          500: '#5B3FA8',
+          600: '#4A3290',
+          700: '#3D1F6E',
+          800: '#2D1560',
           900: '#1F0F3D',
           950: '#0B0518',
         },
@@ -44,20 +44,20 @@ const config: Config = {
         widest: '0.12em',
       },
       boxShadow: {
-        cta: '0 4px 16px rgba(124, 58, 237, 0.25)',
-        'cta-strong': '0 8px 24px rgba(124, 58, 237, 0.30)',
+        cta: '0 4px 16px rgba(91, 63, 168, 0.25)',
+        'cta-strong': '0 8px 24px rgba(91, 63, 168, 0.30)',
         device: '0 24px 60px rgba(27, 21, 48, 0.22), 0 4px 12px rgba(27, 21, 48, 0.08)',
         'device-phone': '0 24px 60px rgba(27, 21, 48, 0.28), 0 4px 12px rgba(27, 21, 48, 0.08)',
-        fab: '0 8px 20px rgba(124, 58, 237, 0.35)',
+        fab: '0 8px 20px rgba(91, 63, 168, 0.35)',
         'plan-highlight': '0 12px 32px rgba(27, 21, 48, 0.18)',
       },
       backgroundImage: {
         'violet-gradient': 'linear-gradient(135deg, #3D1F6E 0%, #1F0F3D 50%, #0B0518 100%)',
         'hero-glow':
-          'radial-gradient(circle, rgba(124,58,237,0.18) 0%, rgba(91,33,182,0.10) 45%, transparent 70%)',
+          'radial-gradient(circle, rgba(91,63,168,0.18) 0%, rgba(61,31,110,0.10) 45%, transparent 70%)',
         'cta-glow':
-          'radial-gradient(circle, rgba(124,58,237,0.08) 0%, rgba(124,58,237,0.04) 50%, transparent 70%)',
-        'avatar-violet': 'linear-gradient(135deg, #C4A8FF, #7C3AED)',
+          'radial-gradient(circle, rgba(91,63,168,0.08) 0%, rgba(91,63,168,0.04) 50%, transparent 70%)',
+        'avatar-violet': 'linear-gradient(135deg, #9272E0, #5B3FA8)',
       },
       transitionTimingFunction: {
         'out-soft': 'cubic-bezier(0.16, 1, 0.3, 1)',

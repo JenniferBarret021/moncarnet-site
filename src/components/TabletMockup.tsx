@@ -187,7 +187,7 @@ export function TabletMockup() {
             <div className="flex gap-[3px] mb-1.5 flex-wrap">
               <div
                 className="flex items-center justify-center rounded-[4px]"
-                style={{ background: '#6C3AED', color: '#FFFFFF', fontSize: '7px', fontWeight: 700, padding: '2.5px 5px' }}
+                style={{ background: '#5B3FA8', color: '#FFFFFF', fontSize: '7px', fontWeight: 700, padding: '2.5px 5px' }}
               >
                 Auj.
               </div>

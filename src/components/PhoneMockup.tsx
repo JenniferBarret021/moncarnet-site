@@ -2,7 +2,7 @@ import { StackIcon } from './StackIcon';
 
 const orders = [
   { time: '09H30', clients: [
-    { name: 'Marie Fontaine', articles: 2, price: '13,40 €', status: 'En préparation', statusColor: '#6C3AED', statusBg: '#F3EEFF', nextLabel: 'Préparée' },
+    { name: 'Marie Fontaine', articles: 2, price: '13,40 €', status: 'En préparation', statusColor: '#5B3FA8', statusBg: '#F3EEFF', nextLabel: 'Préparée' },
   ]},
   { time: '12H00', clients: [
     { name: 'Chloé Lambert', articles: 2, price: '7,60 €', status: 'À préparer', statusColor: '#F59E0B', statusBg: '#FFFBEB', nextLabel: 'En préparation' },
@@ -16,7 +16,7 @@ const orders = [
 const filters = [
   { label: 'Tout', active: true, count: 0, color: '' },
   { label: 'À préparer', active: false, count: 2, color: '#F59E0B' },
-  { label: 'En préparation', active: false, count: 1, color: '#6C3AED' },
+  { label: 'En préparation', active: false, count: 1, color: '#5B3FA8' },
   { label: 'Préparées', active: false, count: 1, color: '#10B981' },
   { label: 'Récupérées', active: false, count: 1, color: '#94A3B8' },
 ];
@@ -42,10 +42,10 @@ export function PhoneMockup() {
         </div>
 
         {/* Header avec bordure violette */}
-        <div className="px-2.5 pt-3.5 pb-1.5 flex items-center gap-1.5" style={{ borderBottom: '1.5px solid #6C3AED' }}>
+        <div className="px-2.5 pt-3.5 pb-1.5 flex items-center gap-1.5" style={{ borderBottom: '1.5px solid #5B3FA8' }}>
           <StackIcon size={16} />
           <div className="flex-1 text-center">
-            <p style={{ fontSize: '4.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#6C3AED' }}>
+            <p style={{ fontSize: '4.5px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: '#5B3FA8' }}>
               Mon carnet de commandes
             </p>
             <p className="text-[6.5px] font-semibold text-ink">Boulangerie Démo</p>
@@ -68,7 +68,7 @@ export function PhoneMockup() {
               key={f.label}
               className="flex items-center gap-[1.5px] shrink-0 px-[3.5px] py-[2px] rounded-[4px]"
               style={f.active
-                ? { background: '#6C3AED', color: '#FFFFFF', fontSize: '5px', fontWeight: 700 }
+                ? { background: '#5B3FA8', color: '#FFFFFF', fontSize: '5px', fontWeight: 700 }
                 : { background: '#FFFFFF', color: '#1E1B2E', fontSize: '5px', fontWeight: 700, border: '0.75px solid #C9C4D9' }
               }
             >
@@ -89,7 +89,7 @@ export function PhoneMockup() {
         <div className="flex gap-[2px] mx-2 mb-1">
           <div
             className="flex-1 flex items-center justify-center rounded-[4px]"
-            style={{ background: '#6C3AED', color: '#FFFFFF', fontSize: '5.5px', fontWeight: 700, height: '14px' }}
+            style={{ background: '#5B3FA8', color: '#FFFFFF', fontSize: '5.5px', fontWeight: 700, height: '14px' }}
           >
             Par commande
           </div>
@@ -205,15 +205,15 @@ export function PhoneMockup() {
                 <div
                   className="w-[22px] h-[12px] rounded-[5px] flex items-center justify-center"
                   style={{
-                    background: tab.active ? '#6C3AED' : 'transparent',
+                    background: tab.active ? '#5B3FA8' : 'transparent',
                     boxShadow: tab.active ? '0 2px 5px rgba(108,58,237,0.35)' : 'none',
                   }}
                 >
                   {tab.label === "Aujourd'hui" && (
                     <svg width="7" height="7" viewBox="0 0 24 24" fill={tab.active ? 'white' : 'none'} stroke={tab.active ? 'white' : '#8E89A3'} strokeWidth={tab.active ? 0 : 1.8} strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                      <line x1="16" y1="2" x2="16" y2="6" stroke={tab.active ? '#6C3AED' : '#8E89A3'} strokeWidth="2" />
-                      <line x1="8" y1="2" x2="8" y2="6" stroke={tab.active ? '#6C3AED' : '#8E89A3'} strokeWidth="2" />
+                      <line x1="16" y1="2" x2="16" y2="6" stroke={tab.active ? '#5B3FA8' : '#8E89A3'} strokeWidth="2" />
+                      <line x1="8" y1="2" x2="8" y2="6" stroke={tab.active ? '#5B3FA8' : '#8E89A3'} strokeWidth="2" />
                       <line x1="3" y1="10" x2="21" y2="10" stroke={tab.active ? 'white' : '#8E89A3'} strokeWidth="1.8" />
                     </svg>
                   )}
@@ -234,7 +234,7 @@ export function PhoneMockup() {
                   style={{
                     fontSize: '4.5px',
                     fontWeight: tab.active ? 700 : 500,
-                    color: tab.active ? '#6C3AED' : '#8E89A3',
+                    color: tab.active ? '#5B3FA8' : '#8E89A3',
                   }}
                 >
                   {tab.label}

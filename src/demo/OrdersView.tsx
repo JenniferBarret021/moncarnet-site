@@ -127,7 +127,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
         <div className="hidden md:grid grid-cols-4 gap-4 mb-6">
           {[
             { label: 'À préparer', value: String(statsAPrep), bg: '#FFFBEB', color: '#F59E0B' },
-            { label: 'En cours', value: String(statsEnCours), bg: '#F3EEFF', color: '#6C3AED' },
+            { label: 'En cours', value: String(statsEnCours), bg: '#F3EEFF', color: '#5B3FA8' },
             { label: 'Prêtes', value: String(statsPretes), bg: '#ECFDF5', color: '#10B981' },
             { label: 'CA jour', value: `${caJour.toFixed(0)} \u20AC`, bg: '#F1F5F9', color: '#1E1B2E' },
           ].map((s) => (
@@ -148,9 +148,9 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
         <div className="text-center pt-4 pb-8">
           <div
             className="w-20 h-20 rounded-3xl mx-auto mb-5 flex items-center justify-center"
-            style={{ background: 'rgba(108, 58, 237, 0.08)' }}
+            style={{ background: 'rgba(91, 63, 168, 0.08)' }}
           >
-            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#6C3AED" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#5B3FA8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
               <line x1="16" y1="2" x2="16" y2="6" />
               <line x1="8" y1="2" x2="8" y2="6" />
@@ -170,7 +170,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
             {[
               { key: 'all', label: 'Tout', count: activeCommandes.length, color: '' },
               { key: 'en_attente', label: 'À préparer', count: statsAPrep, color: '#F59E0B' },
-              { key: 'en_cours', label: 'En préparation', count: statsEnCours, color: '#6C3AED' },
+              { key: 'en_cours', label: 'En préparation', count: statsEnCours, color: '#5B3FA8' },
               { key: 'prete', label: 'Préparées', count: statsPretes, color: '#10B981' },
               { key: 'recuperee', label: 'Récupérées', count: orders.filter((c) => c.status === 'recuperee').length, color: '#94A3B8' },
             ].map((f) => (
@@ -180,7 +180,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                 className="shrink-0 px-3 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5"
                 style={
                   filtreStatut === f.key
-                    ? { background: '#6C3AED', color: '#FFFFFF' }
+                    ? { background: '#5B3FA8', color: '#FFFFFF' }
                     : { background: '#FFFFFF', color: '#1E1B2E', border: '1.5px solid #C9C4D9' }
                 }
               >
@@ -213,7 +213,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                 className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-sm font-bold transition-all"
                 style={
                   vue === v.key
-                    ? { background: '#6C3AED', color: '#FFFFFF', minHeight: '2.5rem' }
+                    ? { background: '#5B3FA8', color: '#FFFFFF', minHeight: '2.5rem' }
                     : { background: '#FFFFFF', color: '#1E1B2E', border: '2px solid #C9C4D9', minHeight: '2.5rem' }
                 }
               >
@@ -269,7 +269,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                         <span className="font-semibold text-base">{p.nom}</span>
                         <span
                           className="text-lg font-bold px-3 py-1 rounded-lg"
-                          style={{ background: 'rgba(108, 58, 237, 0.08)', color: '#6C3AED' }}
+                          style={{ background: 'rgba(91, 63, 168, 0.08)', color: '#5B3FA8' }}
                         >
                           x{p.quantite}
                         </span>
@@ -494,7 +494,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                     </span>
                     <span
                       className="text-xs font-bold"
-                      style={{ color: toutFait ? '#10B981' : '#6C3AED' }}
+                      style={{ color: toutFait ? '#10B981' : '#5B3FA8' }}
                     >
                       {nbFaites}/{totalLignes}
                     </span>
@@ -504,7 +504,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                       className="h-full rounded-full transition-all duration-300"
                       style={{
                         width: `${(nbFaites / totalLignes) * 100}%`,
-                        background: toutFait ? '#10B981' : '#6C3AED',
+                        background: toutFait ? '#10B981' : '#5B3FA8',
                       }}
                     />
                   </div>
@@ -556,7 +556,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                         </div>
                         <span
                           className="font-bold text-sm shrink-0"
-                          style={{ color: fait ? '#10B981' : '#6C3AED' }}
+                          style={{ color: fait ? '#10B981' : '#5B3FA8' }}
                         >
                           {l.qty}x
                         </span>
@@ -573,7 +573,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                             {l.qty} {l.price > 0 ? `x ${l.price.toFixed(2)} \u20AC` : ''}
                           </p>
                         </div>
-                        <span className="font-bold text-sm shrink-0" style={{ color: '#6C3AED' }}>
+                        <span className="font-bold text-sm shrink-0" style={{ color: '#5B3FA8' }}>
                           {l.qty}x
                         </span>
                       </div>
@@ -587,7 +587,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                     type="button"
                     onClick={() => setShowAjoutProduit(true)}
                     className="w-full flex items-center justify-center gap-2 mt-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all"
-                    style={{ background: '#fbfaf8', color: '#6C3AED', border: '1px dashed #6C3AED' }}
+                    style={{ background: '#fbfaf8', color: '#5B3FA8', border: '1px dashed #5B3FA8' }}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                       <line x1="12" y1="5" x2="12" y2="19" />
@@ -643,8 +643,8 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
 
                     {/* Mini-modale quantité */}
                     {ajoutProduitSelect && (
-                      <div className="px-3 py-3" style={{ borderTop: '2px solid #6C3AED', background: 'rgba(108, 58, 237, 0.08)' }}>
-                        <p className="text-sm font-bold text-center mb-2" style={{ color: '#6C3AED' }}>
+                      <div className="px-3 py-3" style={{ borderTop: '2px solid #5B3FA8', background: 'rgba(91, 63, 168, 0.08)' }}>
+                        <p className="text-sm font-bold text-center mb-2" style={{ color: '#5B3FA8' }}>
                           {ajoutProduitSelect.name}
                         </p>
                         <div className="flex items-center justify-center gap-2 mb-3">
@@ -693,7 +693,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                             type="button"
                             onClick={validerAjoutProduit}
                             className="flex-1 py-2.5 px-4 rounded-xl text-sm font-bold"
-                            style={{ background: '#6C3AED', color: '#FFFFFF' }}
+                            style={{ background: '#5B3FA8', color: '#FFFFFF' }}
                           >
                             Ajouter
                           </button>
@@ -761,7 +761,7 @@ export function OrdersView({ dayFilter = 'today' }: { dayFilter?: DayFilter }) {
                       className="flex-1 flex items-center justify-center rounded-xl text-sm font-bold"
                       style={{
                         minHeight: '3rem',
-                        background: toutFait ? '#10B981' : '#6C3AED',
+                        background: toutFait ? '#10B981' : '#5B3FA8',
                         color: 'white',
                       }}
                     >

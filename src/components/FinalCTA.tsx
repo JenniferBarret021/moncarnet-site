@@ -20,14 +20,13 @@ export function FinalCTA() {
               Commencez aujourd&rsquo;hui.
             </h2>
             <p className="text-base text-slate max-w-[480px] mx-auto mb-7">
-              30 jours d&rsquo;essai gratuit, sans carte bancaire. Installation guidée
-              incluse.
+              30 jours d'essai gratuit, sans carte bancaire.
             </p>
             <div className="flex flex-wrap justify-center gap-3.5">
-              <Button href="#" size="lg">
+              <Button href="https://app.mon-carnet-de-commandes.fr" size="lg">
                 Essayer gratuitement
               </Button>
-              <Button href="#" size="lg" variant="outline">
+              <Button href="https://wa.me/33663776013" size="lg" variant="outline">
                 Parler à un humain
               </Button>
             </div>

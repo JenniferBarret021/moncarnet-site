@@ -21,8 +21,8 @@ export function Footer() {
           </div>
           <ul className="list-none p-0 m-0 flex flex-col gap-2.5">
             <li>
-              <a href="mailto:contact@moncarnetdecommande.fr" className="text-[13px] text-slate hover:text-ink transition-colors">
-                contact@moncarnetdecommande.fr
+              <a href="mailto:contact@mon-carnet-de-commande.fr" className="text-[13px] text-slate hover:text-ink transition-colors">
+                contact@mon-carnet-de-commande.fr
               </a>
             </li>
             <li>
@@ -36,14 +36,11 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto mt-10 pt-6 border-t border-line flex flex-col md:flex-row justify-between gap-4 text-xs text-slate">
         <span>© 2026 Mon carnet de commandes. Tous droits réservés.</span>
         <span className="flex flex-wrap gap-4 md:gap-5">
-          <a href="#" className="hover:text-ink transition-colors">
+          <a href="#/mentions-legales" className="hover:text-ink transition-colors">
             Mentions légales
           </a>
-          <a href="#" className="hover:text-ink transition-colors">
+          <a href="#/confidentialite" className="hover:text-ink transition-colors">
             Confidentialité
-          </a>
-          <a href="#" className="hover:text-ink transition-colors">
-            CGU
           </a>
         </span>
       </div>

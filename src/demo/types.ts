@@ -58,7 +58,7 @@ export const STATUS_META: Record<
   { label: string; color: string; bg: string; next: OrderStatus | null; nextLabel: string }
 > = {
   en_attente: { label: 'À préparer', color: '#F59E0B', bg: '#FFFBEB', next: 'en_cours', nextLabel: 'En préparation' },
-  en_cours: { label: 'En préparation', color: '#6C3AED', bg: '#F3EEFF', next: 'prete', nextLabel: 'Préparée' },
+  en_cours: { label: 'En préparation', color: '#5B3FA8', bg: '#F3EEFF', next: 'prete', nextLabel: 'Préparée' },
   prete: { label: 'Préparée', color: '#10B981', bg: '#ECFDF5', next: 'recuperee', nextLabel: 'Récupérée' },
   recuperee: { label: 'Récupérée', color: '#94A3B8', bg: '#F1F5F9', next: null, nextLabel: '' },
   annulee: { label: 'Annulée', color: '#EF4444', bg: '#FEF2F2', next: null, nextLabel: '' },

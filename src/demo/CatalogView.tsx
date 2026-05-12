@@ -19,11 +19,7 @@ export function CatalogView() {
   const [showNewCat, setShowNewCat] = useState(false);
   const [newCatName, setNewCatName] = useState('');
 
-  // Import en masse
-  const [showImport, setShowImport] = useState(false);
-  const [importText, setImportText] = useState('');
-  const [importError, setImportError] = useState<string | null>(null);
-  const [importSuccess, setImportSuccess] = useState<string | null>(null);
+
 
   const allCategories: string[] = [...CATEGORIES, ...customCategories];
 
@@ -54,41 +50,6 @@ export function CatalogView() {
     setShowNewCat(false);
   }
 
-  function handleImport() {
-    setImportError(null);
-    setImportSuccess(null);
-    const lines = importText.trim().split('\n').filter(Boolean);
-    if (lines.length === 0) {
-      setImportError('Collez au moins une ligne.');
-      return;
-    }
-
-    const items: { name: string; price: number; category: string }[] = [];
-    for (let i = 0; i < lines.length; i++) {
-      const parts = lines[i].split(/[;\t]/).map((s) => s.trim());
-      if (parts.length < 2) {
-        setImportError(`Ligne ${i + 1} : il faut au minimum un nom et un prix, séparés par ; ou tabulation.`);
-        return;
-      }
-      const pName = parts[0];
-      const pPrice = Number(parts[1].replace(',', '.'));
-      if (!pName) {
-        setImportError(`Ligne ${i + 1} : nom manquant.`);
-        return;
-      }
-      if (!Number.isFinite(pPrice) || pPrice < 0) {
-        setImportError(`Ligne ${i + 1} : prix invalide "${parts[1]}".`);
-        return;
-      }
-      const pCat = parts[2] || 'Autre';
-      items.push({ name: pName, price: pPrice, category: pCat });
-    }
-
-    actions.addProducts(items);
-    setImportSuccess(`${items.length} produit${items.length > 1 ? 's' : ''} importé${items.length > 1 ? 's' : ''} avec succès.`);
-    setImportText('');
-  }
-
   const filtered = products
     .filter((p) => (filter === 'Tout' ? true : p.category === filter))
     .filter((p) =>
@@ -106,19 +67,6 @@ export function CatalogView() {
           <h1 className="text-2xl font-bold">Catalogue</h1>
           <p className="text-sm mt-0.5" style={{ color: '#8E89A3' }}>{products.length} produits dans votre carnet.</p>
         </div>
-        <button
-          type="button"
-          onClick={() => { setShowImport(true); setImportError(null); setImportSuccess(null); }}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-bold transition-all"
-          style={{ background: '#FFFFFF', color: '#6C3AED', border: '1.5px solid #6C3AED' }}
-        >
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-            <polyline points="17 8 12 3 7 8" />
-            <line x1="12" y1="3" x2="12" y2="15" />
-          </svg>
-          Import en masse
-        </button>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6">
@@ -156,7 +104,7 @@ export function CatalogView() {
                   className="shrink-0 px-3 py-2 rounded-xl text-xs font-bold transition-all"
                   style={
                     active
-                      ? { background: '#6C3AED', color: '#FFFFFF' }
+                      ? { background: '#5B3FA8', color: '#FFFFFF' }
                       : { background: '#FFFFFF', color: '#1E1B2E', border: '1.5px solid #C9C4D9' }
                   }
                 >
@@ -188,7 +136,7 @@ export function CatalogView() {
                     </div>
                   </div>
                   <div className="flex items-center gap-3 shrink-0">
-                    <span className="text-sm font-bold" style={{ color: '#6C3AED' }}>
+                    <span className="text-sm font-bold" style={{ color: '#5B3FA8' }}>
                       {formatEuro(p.price)}
                     </span>
                     <button
@@ -283,7 +231,7 @@ export function CatalogView() {
                       flex: 1,
                       padding: '0.75rem 1rem',
                       borderRadius: '1rem',
-                      border: '1.5px solid #6C3AED',
+                      border: '1.5px solid #5B3FA8',
                       fontSize: '0.875rem',
                       background: '#fbfaf8',
                       color: '#1E1B2E',
@@ -293,7 +241,7 @@ export function CatalogView() {
                     type="button"
                     onClick={handleNewCategory}
                     className="px-3 rounded-xl text-xs font-bold"
-                    style={{ background: '#6C3AED', color: '#FFFFFF' }}
+                    style={{ background: '#5B3FA8', color: '#FFFFFF' }}
                   >
                     OK
                   </button>
@@ -337,7 +285,7 @@ export function CatalogView() {
                     onClick={() => setShowNewCat(true)}
                     title="Créer une catégorie"
                     className="w-11 h-11 shrink-0 rounded-xl flex items-center justify-center"
-                    style={{ background: '#fbfaf8', color: '#6C3AED', border: '1.5px solid #C9C4D9' }}
+                    style={{ background: '#fbfaf8', color: '#5B3FA8', border: '1.5px solid #C9C4D9' }}
                   >
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                       <line x1="12" y1="5" x2="12" y2="19" />
@@ -357,7 +305,7 @@ export function CatalogView() {
             <button
               type="submit"
               className="mt-2 flex items-center justify-center gap-2 rounded-xl py-3 px-4 font-bold text-sm transition-all"
-              style={{ background: '#6C3AED', color: '#FFFFFF', minHeight: '3rem' }}
+              style={{ background: '#5B3FA8', color: '#FFFFFF', minHeight: '3rem' }}
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <line x1="12" y1="5" x2="12" y2="19" />
@@ -369,84 +317,6 @@ export function CatalogView() {
         </aside>
       </div>
 
-      {/* Modale import en masse */}
-      {showImport && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center px-4"
-          onClick={() => setShowImport(false)}
-        >
-          <div className="absolute inset-0" style={{ background: 'rgba(15,23,42,0.6)', backdropFilter: 'blur(4px)' }} />
-          <div
-            className="relative w-full max-w-lg rounded-2xl p-6"
-            style={{ background: '#FFFFFF', boxShadow: '0 25px 60px rgba(0,0,0,0.3)' }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h3 className="font-bold text-xl mb-1">Import en masse</h3>
-            <p className="text-sm mb-4" style={{ color: '#8E89A3' }}>
-              Collez vos produits, un par ligne. Format : <strong>Nom ; Prix ; Catégorie</strong> (la catégorie est optionnelle).
-            </p>
-            <p className="text-xs mb-3 px-3 py-2 rounded-lg" style={{ background: '#fbfaf8', color: '#4A4560', fontFamily: 'monospace' }}>
-              Croissant ; 1,30 ; Viennoiserie<br />
-              Pain complet ; 2,40 ; Pains<br />
-              Tarte citron ; 3,50
-            </p>
-
-            <textarea
-              value={importText}
-              onChange={(e) => setImportText(e.target.value)}
-              rows={8}
-              placeholder="Collez vos produits ici..."
-              autoFocus
-              style={{
-                width: '100%',
-                padding: '0.875rem 1rem',
-                borderRadius: '1rem',
-                border: '1.5px solid #C9C4D9',
-                fontSize: '0.875rem',
-                background: '#fbfaf8',
-                color: '#1E1B2E',
-                resize: 'vertical',
-                fontFamily: 'monospace',
-              }}
-            />
-
-            {importError && (
-              <div className="text-xs rounded-xl px-3 py-2 mt-3" style={{ color: '#EF4444', background: '#FEF2F2' }}>
-                {importError}
-              </div>
-            )}
-            {importSuccess && (
-              <div className="text-xs rounded-xl px-3 py-2 mt-3" style={{ color: '#10B981', background: '#ECFDF5' }}>
-                {importSuccess}
-              </div>
-            )}
-
-            <div className="flex gap-3 mt-4">
-              <button
-                type="button"
-                onClick={() => setShowImport(false)}
-                className="flex-1 py-3 rounded-xl font-bold text-sm"
-                style={{ background: '#FFFFFF', color: '#1E1B2E', border: '1.5px solid #C9C4D9' }}
-              >
-                Fermer
-              </button>
-              <button
-                type="button"
-                onClick={handleImport}
-                className="flex-1 py-3 rounded-xl font-bold text-sm flex items-center justify-center gap-2"
-                style={{ background: '#6C3AED', color: '#FFFFFF' }}
-              >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                  <polyline points="17 8 12 3 7 8" />
-                  <line x1="12" y1="3" x2="12" y2="15" />
-                </svg>
-                Importer
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }

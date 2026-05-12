@@ -1,30 +1,73 @@
+import { useEffect, useRef, useState } from 'react';
 import { FadeIn } from './ui/FadeIn';
+
+function StrikeOnScroll({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const onScroll = () => {
+      const rect = el.getBoundingClientRect();
+      const start = window.innerHeight * 0.45;
+      const end = window.innerHeight * 0.15;
+      const p = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
+      setProgress(p);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <span ref={ref} className="relative inline">
+      {/* Trait de barré qui se dessine au scroll */}
+      <span
+        className="absolute left-0 right-0 top-[55%] h-[3px] bg-violet-500 rounded-full origin-left pointer-events-none"
+        style={{
+          transform: `scaleX(${progress})`,
+          transition: 'none',
+        }}
+      />
+      <span
+        className="relative text-violet-500"
+        style={{
+          opacity: 1 - progress * 0.4,
+          transition: 'none',
+        }}
+      >
+        {children}
+      </span>
+    </span>
+  );
+}
 
 const items = [
   {
-    icon: '🥐',
-    label: 'Boulangeries & pâtisseries',
-    body: 'Précommandes du week-end, pièces montées, gâteaux d’anniversaire.',
+    icon: '\uD83E\uDD50',
+    label: 'Boulangeries & p\u00e2tisseries',
+    body: "Pr\u00e9commandes du week-end, pi\u00e8ces mont\u00e9es, g\u00e2teaux d\u2019anniversaire.",
   },
   {
-    icon: '💐',
+    icon: '\uD83D\uDC90',
     label: 'Fleuristes',
-    body: 'Bouquets sur mesure, événements, abonnements floraux.',
+    body: "Bouquets sur mesure, \u00e9v\u00e9nements, abonnements floraux.",
   },
   {
-    icon: '🍷',
-    label: 'Cavistes & épiceries fines',
-    body: 'Coffrets, mises de côté, retrait click & collect.',
+    icon: '\uD83C\uDF77',
+    label: 'Cavistes & \u00e9piceries fines',
+    body: "Coffrets, mises de c\u00f4t\u00e9, retrait click & collect.",
   },
   {
-    icon: '🥩',
+    icon: '\uD83E\uDD69',
     label: 'Boucheries & charcuteries',
-    body: 'Commandes du week-end, viandes pièces, plateaux apéritifs.',
+    body: "Commandes du week-end, viandes pi\u00e8ces, plateaux ap\u00e9ritifs.",
   },
   {
-    icon: '🧀',
+    icon: '\uD83E\uDDC0',
     label: 'Fromageries',
-    body: 'Plateaux, affinages à commander, ventes à la coupe.',
+    body: "Plateaux, affinages \u00e0 commander, ventes \u00e0 la coupe.",
   },
 ];
 
@@ -35,8 +78,9 @@ export function Audience() {
         <div className="text-xs uppercase tracking-widest text-violet-600 font-bold mb-3">
           Pour qui
         </div>
-        <h2 className="text-[34px] md:text-[40px] font-bold tracking-tighter leading-[1.1] text-ink text-balance">
-          Pour les commerçants de proximité<br className="md:hidden" />{' '}qui souhaitent abandonner le crayon papier.
+        <h2 className="text-[34px] md:text-[40px] font-bold tracking-tighter leading-[1.1] text-ink">
+          <span className="block">Pour les commerçants de proximité</span>
+          <span className="block mt-1">qui veulent <span className="text-violet-500">abandonner le</span> <StrikeOnScroll>crayon papier.</StrikeOnScroll></span>
         </h2>
       </FadeIn>
 
