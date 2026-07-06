@@ -165,29 +165,10 @@ export function PhoneMockup() {
           ))}
         </div>
 
-        {/* Bouton recherche flottant */}
-        <div className="absolute bottom-[40px] left-1/2 -translate-x-1/2">
+        {/* Bottom nav avec bouton + central flottant */}
+        <div className="absolute bottom-[5px] left-[5px] right-[5px] z-10">
           <div
-            className="w-[20px] h-[20px] rounded-[7px] flex items-center justify-center"
-            style={{
-              background: 'rgba(255,255,255,0.9)',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.10), 0 1px 2px rgba(0,0,0,0.05)',
-              border: '1px solid rgba(255,255,255,0.6)',
-            }}
-          >
-            <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="#8E89A3" strokeWidth="2.5" strokeLinecap="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </div>
-        </div>
-
-        {/* Bottom nav glassmorphism */}
-        <div
-          className="absolute bottom-[5px] left-[5px] right-[5px] z-10"
-        >
-          <div
-            className="flex justify-around items-center py-[3.5px] px-0.5"
+            className="relative flex items-end px-0.5"
             style={{
               borderRadius: '9px',
               background: 'rgba(255,255,255,0.85)',
@@ -196,51 +177,83 @@ export function PhoneMockup() {
               border: '1px solid rgba(255,255,255,0.5)',
             }}
           >
-            {[
-              { label: "Aujourd'hui", active: true },
-              { label: 'Commandes', active: false },
-              { label: 'Produits', active: false },
-            ].map((tab) => (
-              <div key={tab.label} className="flex flex-col items-center gap-[1.5px]">
-                <div
-                  className="w-[22px] h-[12px] rounded-[5px] flex items-center justify-center"
-                  style={{
-                    background: tab.active ? '#5B3FA8' : 'transparent',
-                    boxShadow: tab.active ? '0 2px 5px rgba(108,58,237,0.35)' : 'none',
-                  }}
-                >
-                  {tab.label === "Aujourd'hui" && (
-                    <svg width="7" height="7" viewBox="0 0 24 24" fill={tab.active ? 'white' : 'none'} stroke={tab.active ? 'white' : '#8E89A3'} strokeWidth={tab.active ? 0 : 1.8} strokeLinecap="round" strokeLinejoin="round">
-                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                      <line x1="16" y1="2" x2="16" y2="6" stroke={tab.active ? '#5B3FA8' : '#8E89A3'} strokeWidth="2" />
-                      <line x1="8" y1="2" x2="8" y2="6" stroke={tab.active ? '#5B3FA8' : '#8E89A3'} strokeWidth="2" />
-                      <line x1="3" y1="10" x2="21" y2="10" stroke={tab.active ? 'white' : '#8E89A3'} strokeWidth="1.8" />
-                    </svg>
-                  )}
-                  {tab.label === 'Commandes' && (
-                    <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#8E89A3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
-                      <rect x="9" y="3" width="6" height="4" rx="1" />
-                    </svg>
-                  )}
-                  {tab.label === 'Produits' && (
-                    <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#8E89A3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
-                      <circle cx="7" cy="7" r="1.5" />
-                    </svg>
-                  )}
-                </div>
-                <span
-                  style={{
-                    fontSize: '4.5px',
-                    fontWeight: tab.active ? 700 : 500,
-                    color: tab.active ? '#5B3FA8' : '#8E89A3',
-                  }}
-                >
-                  {tab.label}
-                </span>
+            {/* Bouton + central flottant */}
+            <div className="absolute left-1/2 -translate-x-1/2 -top-[10px] z-20">
+              <div
+                className="w-[26px] h-[26px] rounded-full flex items-center justify-center"
+                style={{
+                  background: '#5B3FA8',
+                  boxShadow: '0 3px 10px rgba(91, 63, 168, 0.4)',
+                }}
+              >
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round">
+                  <line x1="12" y1="5" x2="12" y2="19" />
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                </svg>
               </div>
-            ))}
+            </div>
+
+            {/* Onglets gauche */}
+            <div className="flex flex-1 justify-around py-[3.5px]">
+              {/* Aujourd'hui - actif */}
+              <div className="flex flex-col items-center gap-[1px]">
+                <div
+                  className="absolute top-0 rounded-b-full"
+                  style={{ width: '12px', height: '2px', background: '#5B3FA8' }}
+                />
+                <div
+                  className="w-[20px] h-[11px] rounded-[4px] flex items-center justify-center"
+                  style={{ background: '#F3EEFF' }}
+                >
+                  <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#5B3FA8" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                    <line x1="16" y1="2" x2="16" y2="6" />
+                    <line x1="8" y1="2" x2="8" y2="6" />
+                    <line x1="3" y1="10" x2="21" y2="10" />
+                  </svg>
+                </div>
+                <span style={{ fontSize: '4px', fontWeight: 700, color: '#5B3FA8' }}>Aujourd&rsquo;hui</span>
+              </div>
+
+              {/* Commandes */}
+              <div className="flex flex-col items-center gap-[1px]">
+                <div className="w-[20px] h-[11px] rounded-[4px] flex items-center justify-center">
+                  <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#8E89A3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+                    <rect x="9" y="3" width="6" height="4" rx="1" />
+                  </svg>
+                </div>
+                <span style={{ fontSize: '4px', fontWeight: 500, color: '#8E89A3' }}>Commandes</span>
+              </div>
+            </div>
+
+            {/* Espace central pour le bouton + */}
+            <div className="w-[30px] shrink-0" />
+
+            {/* Onglets droite */}
+            <div className="flex flex-1 justify-around py-[3.5px]">
+              {/* Catalogue */}
+              <div className="flex flex-col items-center gap-[1px]">
+                <div className="w-[20px] h-[11px] rounded-[4px] flex items-center justify-center">
+                  <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#8E89A3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z" />
+                    <circle cx="7" cy="7" r="1.5" />
+                  </svg>
+                </div>
+                <span style={{ fontSize: '4px', fontWeight: 500, color: '#8E89A3' }}>Catalogue</span>
+              </div>
+
+              {/* Compte */}
+              <div className="flex flex-col items-center gap-[1px]">
+                <div className="w-[20px] h-[11px] rounded-[4px] flex items-center justify-center">
+                  <svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#8E89A3" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                </div>
+                <span style={{ fontSize: '4px', fontWeight: 500, color: '#8E89A3' }}>Compte</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

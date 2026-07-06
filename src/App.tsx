@@ -1,6 +1,7 @@
 import { Nav } from './components/Nav';
 import { Hero } from './components/Hero';
 import { Features } from './components/Features';
+import { OnlineShop } from './components/OnlineShop';
 import { Audience } from './components/Audience';
 import { Pricing } from './components/Pricing';
 import { FinalCTA } from './components/FinalCTA';
@@ -16,6 +17,7 @@ function Landing() {
       <main>
         <Hero />
         <Features />
+        <OnlineShop />
         <Audience />
         <Pricing />
         <FinalCTA />

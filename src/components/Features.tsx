@@ -1,6 +1,7 @@
 import { type ReactNode, useEffect, useRef, useState } from 'react';
 
 
+
 /**
  * Hook that triggers a looping animation cycle.
  * Returns a `step` counter that resets to 0 every `duration` ms,
@@ -8,27 +9,14 @@ import { type ReactNode, useEffect, useRef, useState } from 'react';
  */
 function useLoop(duration: number, tick: number, frozen = false) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  const [step, setStep] = useState(-1);
+  const [step, setStep] = useState(0);
   const maxStep = Math.floor(duration / tick) - 1;
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => setVisible(e.isIntersecting),
-      { threshold: 0.3 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
 
   useEffect(() => {
     if (frozen) {
       setStep(maxStep);
       return;
     }
-    if (!visible) return;
     setStep(0);
     let s = 0;
     const id = setInterval(() => {
@@ -39,7 +27,7 @@ function useLoop(duration: number, tick: number, frozen = false) {
       setStep(s);
     }, tick);
     return () => clearInterval(id);
-  }, [visible, frozen, duration, tick, maxStep]);
+  }, [frozen, duration, tick, maxStep]);
 
   return { ref, step };
 }
@@ -430,176 +418,47 @@ const featureItems: FeatureItem[] = [
   },
 ];
 
-function useScrollProgress(ref: React.RefObject<HTMLElement | null>) {
-  const [progress, setProgress] = useState(0);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const onScroll = () => {
-      const rect = el.getBoundingClientRect();
-      const total = el.offsetHeight - window.innerHeight;
-      if (total <= 0) { setProgress(1); return; }
-      const scrolled = -rect.top;
-      setProgress(Math.max(0, Math.min(1, scrolled / total)));
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [ref]);
-  return progress;
-}
-
 export function Features() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const progress = useScrollProgress(sectionRef);
-
-  const [isMobile, setIsMobile] = useState(false);
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768);
-    check();
-    window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
-  }, []);
-
-  const cardCount = featureItems.length;
-
-  // Mobile: one card at a time, each card gets an equal slice of progress
-  const mobileActiveIndex = isMobile
-    ? Math.min(Math.floor(progress * cardCount), cardCount - 1)
-    : 0;
-
   return (
     <section
-      ref={sectionRef}
       id="features"
-      className="relative px-6 md:px-14"
-      style={{ height: `${(cardCount + 1) * 100}vh` }}
+      className="relative px-6 md:px-14 py-20 md:py-24"
     >
-      <div className="sticky top-0 min-h-screen flex flex-col justify-center py-12 md:py-16">
-        <div className="max-w-[760px] mx-auto mb-8 md:mb-12 text-center">
-          <span className="inline-block text-xs uppercase tracking-widest text-violet-500 font-bold mb-3 px-4 py-1.5 rounded-full" style={{ background: 'rgba(91, 63, 168, 0.15)' }}>
-            Comment ça marche
-          </span>
-          <h2 className="text-[34px] md:text-[44px] font-bold tracking-tighter leading-[1.05] text-ink text-balance">
-            Prêt en 5 minutes, utile dès aujourd'hui.
-          </h2>
-        </div>
+      <div className="max-w-[760px] mx-auto mb-8 md:mb-12 text-center">
+        <span className="inline-block text-xs uppercase tracking-widest text-violet-500 font-bold mb-3 px-4 py-1.5 rounded-full" style={{ background: 'rgba(91, 63, 168, 0.15)' }}>
+          Comment ça marche
+        </span>
+        <h2 className="text-[34px] md:text-[44px] font-bold tracking-tighter leading-[1.05] text-ink text-balance">
+          Prêt en 5 minutes, utile dès aujourd'hui.
+        </h2>
+      </div>
 
-        {/* Desktop: grid 4 cols */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-[1400px] mx-auto">
-          {featureItems.map((f, i) => {
-            let cardProgress: number;
-            if (i === 0) {
-              cardProgress = 1;
-            } else {
-              const cardStart = 0.02 + ((i - 1) / (cardCount - 1)) * 0.45;
-              const cardEnd = cardStart + 0.12;
-              cardProgress = Math.max(0, Math.min(1, (progress - cardStart) / (cardEnd - cardStart)));
-            }
-
-            const isNextCardVisible = i < cardCount - 1 && (() => {
-              const nextStart = 0.02 + (i / (cardCount - 1)) * 0.45;
-              return progress >= nextStart + 0.06;
-            })();
-            const frozen = isNextCardVisible;
-
-            return (
-              <article
-                key={i}
-                className="bg-white border border-line rounded-2xl p-7 flex flex-col gap-5 h-full hover:shadow-[0_12px_32px_rgba(27,21,48,0.08)]"
-                style={i === 0 ? {} : {
-                  opacity: cardProgress,
-                  transform: `translateY(${(1 - cardProgress) * 16}px)`,
-                  transition: 'none',
-                }}
-              >
-                <div className="h-[280px] rounded-xl bg-paper-100 flex items-center justify-center p-4 border border-line overflow-hidden">
-                  {f.illu(frozen)}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-[1400px] mx-auto">
+        {featureItems.map((f, i) => (
+          <article
+            key={i}
+            className="bg-white border border-line rounded-2xl p-7 flex flex-col gap-5 h-full hover:shadow-[0_12px_32px_rgba(27,21,48,0.08)]"
+          >
+            <div className="h-[280px] rounded-xl bg-paper-100 flex items-center justify-center p-4 border border-line overflow-hidden">
+              {f.illu(false)}
+            </div>
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-[13px] font-bold text-violet-500 tracking-wider">{f.step}</span>
+                <div className="h-px flex-1 bg-line relative">
+                  <div className="absolute left-0 -top-0.5 h-1 bg-violet-500 rounded-full" style={{ width: 32 }} />
                 </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[13px] font-bold text-violet-500 tracking-wider">{f.step}</span>
-                    <div className="h-px flex-1 bg-line relative">
-                      <div
-                        className="absolute left-0 -top-0.5 h-1 bg-violet-500 rounded-full"
-                        style={i === 0 ? { width: 32 } : {
-                          width: `${cardProgress * 100}%`,
-                          maxWidth: 32,
-                          transition: 'none',
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className="text-[11px] font-bold text-violet-500 tracking-wide uppercase mb-2">
-                    {f.tag}
-                  </div>
-                  <h3 className="text-[22px] font-bold tracking-tight text-ink mb-2.5 leading-tight">
-                    {f.title}
-                  </h3>
-                  <p className="text-sm text-slate leading-[1.55]">{f.body}</p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* Mobile: one card at a time */}
-        <div className="md:hidden max-w-[400px] mx-auto w-full relative" style={{ minHeight: 420 }}>
-          {featureItems.map((f, i) => {
-            const isActive = mobileActiveIndex === i;
-            const isPast = i < mobileActiveIndex;
-            const isFuture = i > mobileActiveIndex;
-            const frozen = isPast;
-
-            return (
-              <article
-                key={i}
-                className="bg-white border border-line rounded-2xl p-6 flex flex-col gap-4 absolute inset-0"
-                style={{
-                  opacity: isActive ? 1 : 0,
-                  transform: isFuture ? 'translateY(20px)' : isPast ? 'translateY(-20px)' : 'translateY(0)',
-                  transition: 'opacity 0.3s ease, transform 0.3s ease',
-                  pointerEvents: isActive ? 'auto' : 'none',
-                }}
-              >
-                <div className="h-[220px] rounded-xl bg-paper-100 flex items-center justify-center p-4 border border-line overflow-hidden">
-                  {f.illu(frozen)}
-                </div>
-                <div>
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-[13px] font-bold text-violet-500 tracking-wider">{f.step}</span>
-                    <div className="h-px flex-1 bg-line relative">
-                      <div className="absolute left-0 -top-0.5 h-1 bg-violet-500 rounded-full" style={{ width: 32 }} />
-                    </div>
-                  </div>
-                  <div className="text-[11px] font-bold text-violet-500 tracking-wide uppercase mb-2">
-                    {f.tag}
-                  </div>
-                  <h3 className="text-[20px] font-bold tracking-tight text-ink mb-2 leading-tight">
-                    {f.title}
-                  </h3>
-                  <p className="text-sm text-slate leading-[1.55]">{f.body}</p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* Scroll progress dots */}
-        <div className="flex justify-center gap-2 mt-8">
-          {featureItems.map((_, i) => {
-            const active = isMobile
-              ? i <= mobileActiveIndex
-              : i === 0 || progress >= 0.02 + ((i - 1) / (cardCount - 1)) * 0.45;
-            return (
-              <div
-                key={i}
-                className="w-2 h-2 rounded-full transition-all duration-300"
-                style={{ background: active ? '#5B3FA8' : '#E8E2D8', transform: active ? 'scale(1.2)' : 'scale(1)' }}
-              />
-            );
-          })}
-        </div>
+              </div>
+              <div className="text-[11px] font-bold text-violet-500 tracking-wide uppercase mb-2">
+                {f.tag}
+              </div>
+              <h3 className="text-[22px] font-bold tracking-tight text-ink mb-2.5 leading-tight">
+                {f.title}
+              </h3>
+              <p className="text-sm text-slate leading-[1.55]">{f.body}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

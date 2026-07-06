@@ -4,10 +4,9 @@ import { TabletMockup } from './TabletMockup';
 import { PhoneMockup } from './PhoneMockup';
 
 const checks = [
+  "30 jours d'essai",
   'Sans carte bancaire',
   'Installation en 5 min',
-  "30 jours d'essai",
-  'Support en français',
 ];
 
 export function Hero() {
@@ -17,7 +16,7 @@ export function Hero() {
         <div className="inline-flex flex-col items-center gap-1.5 mb-6">
           <div className="inline-flex items-center gap-2 bg-violet-50 text-violet-500 px-3.5 py-1.5 rounded-full text-xs font-semibold border border-violet-100">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-600" />
-            Spécialement conçu pour les commerces de proximité
+            Pour les commerçants de proximité
           </div>
         </div>
 
@@ -29,12 +28,13 @@ export function Hero() {
         </h1>
 
         <p className="text-[17px] md:text-[19px] leading-[1.55] text-slate mx-auto max-w-[820px] mb-8">
-          Fini le carnet papier, les Post-it perdus et les commandes oubliées. Centralisez
-          tout au même endroit, retrouvez n'importe quelle commande en un instant et ne laissez plus rien passer entre les mailles.
+          Fini le carnet papier, les Post-it perdus et les commandes oubliées.
+          <br />
+          Centralisez tout au même endroit, créez votre boutique en ligne en deux clics et recevez les commandes de vos clients directement dans l'application.
         </p>
 
         <div className="flex flex-wrap gap-3.5 items-center justify-center mb-6">
-          <Button href="#" size="lg">
+          <Button href="https://app.mon-carnet-de-commandes.fr" size="lg">
             Essayer gratuitement
           </Button>
           <a

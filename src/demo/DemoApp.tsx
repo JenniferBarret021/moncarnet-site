@@ -297,35 +297,28 @@ export function DemoApp() {
         </div>
       </div>
 
-      {/* ===== MOBILE FAB NOUVELLE COMMANDE ===== */}
-      {showBottomNav && (
-        <button
-          onClick={navigateToNew}
-          className="fixed z-50 md:hidden flex items-center justify-center rounded-full"
-          style={{
-            bottom: 'calc(5.5rem + env(safe-area-inset-bottom))',
-            right: '1rem',
-            width: '52px',
-            height: '52px',
-            background: '#5B3FA8',
-            color: '#FFFFFF',
-            boxShadow: '0 6px 20px rgba(91, 63, 168, 0.4), 0 2px 6px rgba(0,0,0,0.1)',
-          }}
-          aria-label="Nouvelle commande"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
-            <line x1="12" y1="5" x2="12" y2="19" />
-            <line x1="5" y1="12" x2="19" y2="12" />
-          </svg>
-        </button>
-      )}
-
       {/* ===== MOBILE BOTTOM NAV ===== */}
       {showBottomNav && (
         <nav
           className="fixed bottom-3 left-3 right-3 z-50 md:hidden"
           style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         >
+          {/* Bouton Nouvelle commande au-dessus du menu */}
+          <button
+            onClick={navigateToNew}
+            className="w-full flex items-center justify-center gap-2 py-3 mb-2 rounded-2xl font-bold text-sm transition-all"
+            style={{
+              background: '#5B3FA8',
+              color: '#FFFFFF',
+              boxShadow: '0 6px 20px rgba(91, 63, 168, 0.4), 0 2px 6px rgba(0,0,0,0.1)',
+            }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+            Nouvelle commande
+          </button>
           <div
             className="relative max-w-lg mx-auto px-2 py-2"
             style={{
