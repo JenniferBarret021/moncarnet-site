@@ -77,7 +77,7 @@ function useShopAnimation() {
 
 /* ===== Browser mockup (desktop) ===== */
 function BrowserMockup() {
-  const { step, modalProduct, modalQty, cartLines, getQty, nbArticles, showForm, showConfirm, showNotif } = useShopAnimation();
+  const { modalProduct, modalQty, cartLines, getQty, showForm, showConfirm, showNotif } = useShopAnimation();
 
   return (
     <div className="relative w-full">
@@ -289,7 +289,7 @@ function BrowserMockup() {
 
 /* ===== Phone mockup (mobile) ===== */
 function PhoneShopMockup() {
-  const { step, modalProduct, modalQty, cartLines, getQty, nbArticles, showForm, showConfirm, showNotif } = useShopAnimation();
+  const { modalProduct, modalQty, cartLines, getQty, nbArticles, showForm, showConfirm, showNotif } = useShopAnimation();
 
   return (
     <div className="relative mx-auto w-[220px]">

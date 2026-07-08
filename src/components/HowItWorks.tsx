@@ -1,29 +1,29 @@
-import { useEffect, useState } from ‘react’;
+import { useEffect, useState } from 'react';
 
 const steps = [
   {
-    n: ‘01’,
-    t: ‘Ajoutez vos produits’,
+    n: '01',
+    t: 'Ajoutez vos produits',
     body:
-      ‘Importez ou créez votre catalogue produit en quelques minutes. Vos prix, vos références, vos catégories.’,
+      'Importez ou créez votre catalogue produit en quelques minutes. Vos prix, vos références, vos catégories.',
   },
   {
-    n: ‘02’,
-    t: ‘Prenez vos commandes’,
+    n: '02',
+    t: 'Prenez vos commandes',
     body:
-      ‘Au comptoir, par téléphone, en ligne. Tout converge dans un seul carnet, à jour pour toute l’équipe.’,
+      "Au comptoir, par téléphone, en ligne. Tout converge dans un seul carnet, à jour pour toute l'équipe.",
   },
   {
-    n: ‘03’,
-    t: ‘Préparez-les sereinement’,
+    n: '03',
+    t: 'Préparez-les sereinement',
     body:
-      ‘La vue prépa vous indique exactement quoi faire, en quelle quantité, et pour quand. Rien ne passe à la trappe.’,
+      'La vue prépa vous indique exactement quoi faire, en quelle quantité, et pour quand. Rien ne passe à la trappe.',
   },
   {
-    n: ‘04’,
-    t: ‘Gérez les retraits’,
+    n: '04',
+    t: 'Gérez les retraits',
     body:
-      ‘Suivez qui a récupéré sa commande, quand et comment. Un clic suffit pour valider le retrait.’,
+      'Suivez qui a récupéré sa commande, quand et comment. Un clic suffit pour valider le retrait.',
   },
 ];
 
@@ -46,15 +46,15 @@ function DesktopSteps() {
             key={s.n}
             style={{
               opacity: isActive ? 1 : 0.45,
-              transform: isActive ? ‘translateY(-4px)’ : ‘translateY(0)’,
-              transition: ‘opacity 500ms ease, transform 500ms ease’,
+              transform: isActive ? 'translateY(-4px)' : 'translateY(0)',
+              transition: 'opacity 500ms ease, transform 500ms ease',
             }}
           >
             <div
               className="text-[13px] font-bold tracking-wider mb-3.5"
               style={{
-                color: isActive ? ‘#7C3AED’ : ‘#A78BFA’,
-                transition: ‘color 500ms ease’,
+                color: isActive ? '#7C3AED' : '#A78BFA',
+                transition: 'color 500ms ease',
               }}
             >
               {s.n}
@@ -63,9 +63,9 @@ function DesktopSteps() {
               <div
                 className="absolute left-0 -top-0.5 h-1 bg-violet-500 rounded-full"
                 style={{
-                  width: isActive ? ‘2.5rem’ : ‘1.5rem’,
+                  width: isActive ? '2.5rem' : '1.5rem',
                   opacity: isActive ? 1 : 0.4,
-                  transition: ‘width 500ms ease, opacity 500ms ease’,
+                  transition: 'width 500ms ease, opacity 500ms ease',
                 }}
               />
             </div>
